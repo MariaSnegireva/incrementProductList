@@ -1,18 +1,28 @@
 import { useEffect, useState } from 'react';
+import './ProductList.css';
 // import { getProducts } from './api/products';
 
 const QuantityControl = ({quantity, onIncrement, onDecrement}) => {
   return (
-    <div>
+    <div className='container'>
       <button 
+        className="button"
         type="button"
-        disabled = {quantity === 1}
+        // disabled = {quantity === 1}
         onClick = {onDecrement}
       >
         -
       </button>
-      <span>{quantity}</span>
-      <button type="button" onClick = {onIncrement}>+</button>
+
+      <span className='value'>{quantity}</span>
+      
+      <button 
+        className="button"
+        type="button" 
+        onClick = {onIncrement}
+      > 
+        + 
+      </button>
     </div>
   );
 };
@@ -27,7 +37,7 @@ export const ProductList = () => {
     setIsLoading(true);
     setIsError(false);
  
-    fetch(`https://github.com/MariaSnegireva/incrementProductList/blob/main/public/api/products.json`) //  or use getProducts
+    fetch('https://mate-academy.github.io/react_phone-catalog/_new/products.json') //  or use getProducts
     .then(response => response.json())
     .then(productsFromServer => {
       setProducts(productsFromServer)
@@ -65,19 +75,19 @@ export const ProductList = () => {
   };
 
   return (
-    <div >
-      {/* {isLoading && (
+    <div className='productList'>
+      {isLoading && (
         <h1>Loading...</h1>
       )}
 
       {isError && (
         <h1>Error loading products</h1>
-      )} */}
+      )}
 
       <h1>Product List</h1>
-      {/* {products.length
+      {products.length
         ? (
-        <> */}
+        <>
           <ul>
             {products.map(product => (
               <li key={product.id}>
@@ -90,10 +100,10 @@ export const ProductList = () => {
               </li>
             ))}
           </ul>
-        {/* </>
+        </>
         ) : (
              <h1>Your cart is empty</h1>
-      )}    */}
+      )}   
        <h2>Total: ${calculateTotal()}</h2>
     </div>
   );
