@@ -27,7 +27,7 @@ export const ProductList = () => {
     setIsLoading(true);
     setIsError(false);
  
-    fetch(`./public/api/products`) //  or use getProducts
+    fetch(`https://github.com/MariaSnegireva/incrementProductList/blob/main/public/api/products.json`) //  or use getProducts
     .then(response => response.json())
     .then(productsFromServer => {
       setProducts(productsFromServer)
