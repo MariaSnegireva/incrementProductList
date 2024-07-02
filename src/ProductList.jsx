@@ -8,7 +8,7 @@ const QuantityControl = ({quantity, onIncrement, onDecrement}) => {
       <button 
         type="button"
         className="button"
-        disabled = {quantity === 1}
+        // disabled = {quantity === 1}
         onClick = {onDecrement}
       >
         -
@@ -88,7 +88,10 @@ export const ProductList = () => {
         <>
           <ul>
             {products.map(product => (
-              <li key={product.id}>
+              <li 
+                key={product.id}
+                className="item"
+              >
                 {product.name} - ${product.price}
                 <QuantityControl
                   quantity={cart[product.id] || 0}
