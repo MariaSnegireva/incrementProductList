@@ -1,4 +1,5 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState } from 'react';
+// import { getProducts } from './api/products';
 
 const QuantityControl = ({quantity, onIncrement, onDecrement}) => {
   return (
@@ -24,11 +25,12 @@ export const ProductList = () => {
 
   useEffect(() => {
     setIsLoading(true);
-
-    fetch('BASE_URL') 
+    setIsError(false);
+ 
+    fetch(`./public/api/products`) //  or use getProducts
     .then(response => response.json())
-    .then(data => {
-      setProducts(data);
+    .then(productsFromServer => {
+      setProducts(productsFromServer)
     })
     .catch(error => {
       setIsError(true);
@@ -38,11 +40,11 @@ export const ProductList = () => {
     });
   }, []);
 
-  const IncrementQuantity = (productId) => {
-    setCart(prevCart => ({
-      ...prevCart,
-      [productId]: (prevCart[productId] || 0) + 1
-    }));
+    const IncrementQuantity = (productId) => {
+      setCart(prevCart => ({
+        ...prevCart,
+        [productId]: (prevCart[productId] || 0) + 1
+      }));
   };
 
   const DecrementQuantity = (productId) => {
@@ -64,18 +66,18 @@ export const ProductList = () => {
 
   return (
     <div >
-      {isLoading && (
+      {/* {isLoading && (
         <h1>Loading...</h1>
       )}
 
       {isError && (
         <h1>Error loading products</h1>
-      )}
+      )} */}
 
       <h1>Product List</h1>
-      {products.length
+      {/* {products.length
         ? (
-        <>
+        <> */}
           <ul>
             {products.map(product => (
               <li key={product.id}>
@@ -88,10 +90,10 @@ export const ProductList = () => {
               </li>
             ))}
           </ul>
-        </>
+        {/* </>
         ) : (
              <h1>Your cart is empty</h1>
-      )}   
+      )}    */}
        <h2>Total: ${calculateTotal()}</h2>
     </div>
   );
