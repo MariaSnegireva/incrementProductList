@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/MariaSnegireva/incrementProductList/static/css/main.3f315887.css",
-    "main.js": "/MariaSnegireva/incrementProductList/static/js/main.fb3b88eb.js",
+    "main.css": "/MariaSnegireva/incrementProductList/static/css/main.38827a51.css",
+    "main.js": "/MariaSnegireva/incrementProductList/static/js/main.735cf2dc.js",
     "index.html": "/MariaSnegireva/incrementProductList/index.html",
-    "main.3f315887.css.map": "/MariaSnegireva/incrementProductList/static/css/main.3f315887.css.map",
-    "main.fb3b88eb.js.map": "/MariaSnegireva/incrementProductList/static/js/main.fb3b88eb.js.map"
+    "main.38827a51.css.map": "/MariaSnegireva/incrementProductList/static/css/main.38827a51.css.map",
+    "main.735cf2dc.js.map": "/MariaSnegireva/incrementProductList/static/js/main.735cf2dc.js.map"
   },
   "entrypoints": [
-    "static/css/main.3f315887.css",
-    "static/js/main.fb3b88eb.js"
+    "static/css/main.38827a51.css",
+    "static/js/main.735cf2dc.js"
   ]
 }
