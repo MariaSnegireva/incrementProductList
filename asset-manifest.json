@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/incrementProductList/static/css/main.3f315887.css",
+    "main.js": "/incrementProductList/static/js/main.8ae472ed.js",
+    "index.html": "/incrementProductList/index.html",
+    "main.3f315887.css.map": "/incrementProductList/static/css/main.3f315887.css.map",
+    "main.8ae472ed.js.map": "/incrementProductList/static/js/main.8ae472ed.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.3f315887.css",
+    "static/js/main.8ae472ed.js"
+  ]
+}
