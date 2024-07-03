@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.css": "/MariaSnegireva/incrementProductList/static/css/main.38827a51.css",
-    "main.js": "/MariaSnegireva/incrementProductList/static/js/main.7a7218de.js",
-    "index.html": "/MariaSnegireva/incrementProductList/index.html",
-    "main.38827a51.css.map": "/MariaSnegireva/incrementProductList/static/css/main.38827a51.css.map",
-    "main.7a7218de.js.map": "/MariaSnegireva/incrementProductList/static/js/main.7a7218de.js.map"
+    "main.css": "/static/css/main.38827a51.css",
+    "main.js": "/static/js/main.7a7218de.js",
+    "index.html": "/index.html",
+    "main.38827a51.css.map": "/static/css/main.38827a51.css.map",
+    "main.7a7218de.js.map": "/static/js/main.7a7218de.js.map"
   },
   "entrypoints": [
     "static/css/main.38827a51.css",
