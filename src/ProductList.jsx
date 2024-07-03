@@ -35,7 +35,8 @@ export const ProductList = () => {
     setIsLoading(true);
     setIsError(false);
  
-    fetch('https://mate-academy.github.io/react_phone-catalog/_new/products.json') //  or use getProducts
+    // fetch('https://mate-academy.github.io/react_phone-catalog/_new/products.json') 
+    fetch('https://MariaSnegireva.github.io/incrementProductList/api/products.json') //  or use getProducts
     .then(response => response.json())
     .then(productsFromServer => {
       setProducts(productsFromServer)
