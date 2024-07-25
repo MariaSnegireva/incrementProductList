@@ -23,7 +23,7 @@ This project is a simple React application that fetches a list of products from 
   ```bash
    npm install
 
-## Usage
+### Usage
 
 1. Start the development server:
   ```bash
