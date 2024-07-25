@@ -12,23 +12,27 @@ This project is a simple React application that fetches a list of products from 
 
 ## Installation
 
-1. Clone the repository:
+1.Clone the repository:
 
    ```bash
    git clone https://github.com/your-username/product-list-app.git
    cd product-list-app
+   ```
 
-2. Install the dependencies:
+2.Install the dependencies:
 
   ```bash
    npm install
+   ```
 
 ### Usage
 
-1. Start the development server:
+1.Start the development server:
+
   ```bash
   npm start
+  ```
 
-2. Open your browser and navigate to <http://localhost:3000>
+2.Open your browser and navigate to <http://localhost:3000>.
 
 #### [DEMO LINK](https://MariaSnegireva.github.io/incrementProductList/)
