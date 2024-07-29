@@ -1,29 +1,8 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import './ProductList.css';
+import { ProductCart } from './ProductCart';
 // import { getProducts } from './api/products';
 
-const QuantityControl = ({quantity, onIncrement, onDecrement}) => {
-  return (
-    <div className='container'>
-      <button 
-        type="button"
-        className="button"
-        // disabled = {quantity === 1}
-        onClick = {onDecrement}
-      >
-        -
-      </button>
-      <span className="value">{quantity}</span>
-      <button 
-        type="button" 
-        className="button"
-        onClick = {onIncrement}
-      >
-        +
-        </button>
-    </div>
-  );
-};
 
 export const ProductList = () => {
   const [products, setProducts] = useState([]);
@@ -33,7 +12,6 @@ export const ProductList = () => {
 
   useEffect(() => {
     setIsLoading(true);
-    setIsError(false);
  
     // fetch('https://mate-academy.github.io/react_phone-catalog/_new/products.json') 
     fetch('https://MariaSnegireva.github.io/incrementProductList/api/products.json') //  or use getProducts
@@ -49,14 +27,35 @@ export const ProductList = () => {
     });
   }, []);
 
-    const IncrementQuantity = (productId) => {
+  // using async await
+  // useEffect(() => {
+  //   const fetchProducts = async () => {
+  //     setIsLoading(true);
+  //     try {
+  //       const response = await fetch('BASE_URL');
+  //       if (!response.ok) {
+  //         throw new Error('Network response was not ok');
+  //       }
+  //       const data = await response.json();
+  //       setProducts(data);
+  //     } catch (error) {
+  //       setIsError(true);
+  //     } finally {
+  //       setIsLoading(false);
+  //     }
+  //   };
+
+  //   fetchProducts();
+  // }, []);
+
+    const incrementQuantity = useCallback((productId) => {
       setCart(prevCart => ({
         ...prevCart,
         [productId]: (prevCart[productId] || 0) + 1
       }));
-  };
+  }, []);
 
-  const DecrementQuantity = (productId) => {
+  const decrementQuantity = useCallback((productId) => {
     setCart(prevCart => {
       const newCart = {...prevCart};
       if (newCart[productId] > 0) {
@@ -64,14 +63,23 @@ export const ProductList = () => {
       }
       return newCart;
     });
-  };
+  }, []);
 
-  const calculateTotal = () => {
+  const removeProduct = useCallback((productId) => {
+    setProducts(prevProducts => prevProducts.filter(product => product.id !== productId));
+    setCart(prevCart => {
+      const newCart = {...prevCart};
+      delete newCart[productId];
+      return newCart;
+    });
+  }, []);
+
+  const calculateTotal = useCallback(() => {
     return products.reduce((total, product) => {
      const quantity = cart[product.id] || 0;
      return total + (product.price * quantity);
     },0);
-  };
+  }, [products, cart]);
 
   return (
     <div className='productList'>
@@ -86,23 +94,18 @@ export const ProductList = () => {
       <h1>Product List</h1>
       {products.length
         ? (
-        <>
-          <ul>
-            {products.map(product => (
-              <li 
-                key={product.id}
-                className="item"
-              >
-                {product.name} - ${product.price}
-                <QuantityControl
-                  quantity={cart[product.id] || 0}
-                  onDecrement={()=> DecrementQuantity(product.id)}
-                  onIncrement={()=> IncrementQuantity(product.id)}
-                />
-              </li>
-            ))}
-          </ul>
-        </>
+        <ul>
+          {products.map(product => (
+            <ProductCart
+              key = {product.id}
+              product = {product}
+              quantity = {cart[product.id] || 0 }
+              increment={incrementQuantity}
+              decrement={decrementQuantity}
+              remove={removeProduct}
+            />
+          ))}
+        </ul>
         ) : (
              <h1>Your cart is empty</h1>
       )}   

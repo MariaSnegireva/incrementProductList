@@ -9,6 +9,10 @@ This project is a simple React application that fetches a list of products from 
 - Allows users to increment and decrement the quantity of each product.
 - Calculates and displays the total price of the products in the cart.
 - Shows loading and error states during data fetching.
+- Maps product data into cards.
+- Displays detailed information about each product.
+- Allows users to remove products from the list.
+- Uses memoization to optimize performance.
 
 ## Installation
 

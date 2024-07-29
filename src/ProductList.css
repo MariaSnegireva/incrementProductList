@@ -19,6 +19,15 @@
   cursor: pointer;
 }
 
+.remove {
+  font-size: 14px;
+  border: 1px solid darkgoldenrod;
+  box-sizing: border-box;
+  background-color: gray;
+  cursor: pointer;
+  margin-left: 5px;
+}
+
 .value {
   font-size: 14px;
   color: green;
