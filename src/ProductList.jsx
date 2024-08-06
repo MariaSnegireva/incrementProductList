@@ -53,7 +53,7 @@ export const ProductList = () => {
         ...prevCart,
         [productId]: (prevCart[productId] || 0) + 1
       }));
-  }, []);
+    }, []);
 
   const decrementQuantity = useCallback((productId) => {
     setCart(prevCart => {
